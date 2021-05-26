@@ -1,5 +1,6 @@
 import react from 'react';
 import axios from 'axios';
+import Weather from './weather'
 
 class App extends react.Component {
 
@@ -27,8 +28,8 @@ class App extends react.Component {
 
     // location map 'https://maps.locationiq.com/v3/staticmap?key=<YOUR_ACCESS_TOKEN>&center=<latitude>,<longitude>'
 
-
     let url = `https:us1.locationiq.com/v1/search.php?key=pk.2755a236f4cbc8df7b0076e7519c870b&q=${this.state.city}&format=json`
+
 
     try {
       let result = await axios.get(url);
@@ -56,6 +57,7 @@ class App extends react.Component {
           <button type='submit'>Explore!</button>
         </form>
 
+
         {this.state.displayMap &&
           <p>City: {this.state.result.display_name}</p>
         }
@@ -72,6 +74,10 @@ class App extends react.Component {
 
         {this.state.errorMessage &&
           <p>City not Found</p>
+        }
+
+        {this.state.displayMap &&
+          <Weather city={this.state.city} displayMap={this.state.displayMap}></Weather>
         }
       </>
     )

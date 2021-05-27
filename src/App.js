@@ -70,8 +70,10 @@ class App extends react.Component {
         }
 
         {this.state.displayMap &&
-          <img src={`https://maps.locationiq.com/v3/staticmap?key=f5de8e48adbdc6¢er=${this.state.result.lat},${this.state.result.lon}`} alt='' />
+          <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.2755a236f4cbc8df7b0076e7519c870b&center=${this.state.result.lat},${this.state.result.lon}`} alt='' />
         }
+
+{/* https://maps.locationiq.com/v3/staticmap?key=<YOUR_ACCESS_TOKEN>&center=<latitude>,<longitude> */}
 
         {this.state.errorMessage &&
           <p>City not Found</p>

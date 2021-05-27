@@ -73,15 +73,13 @@ class App extends react.Component {
           <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.2755a236f4cbc8df7b0076e7519c870b&center=${this.state.result.lat},${this.state.result.lon}`} alt='' />
         }
 
-{/* https://maps.locationiq.com/v3/staticmap?key=<YOUR_ACCESS_TOKEN>&center=<latitude>,<longitude> */}
-
         {this.state.errorMessage &&
           <p>City not Found</p>
         }
 
-        {/* {this.state.displayMap &&
+        {this.state.displayMap &&
           <Weather city={this.state.city} displayMap={this.state.displayMap}></Weather>
-        } */}
+        }
       </>
     )
   }

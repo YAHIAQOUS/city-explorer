@@ -28,7 +28,7 @@ class App extends react.Component {
 
     // location map 'https://maps.locationiq.com/v3/staticmap?key=<YOUR_ACCESS_TOKEN>&center=<latitude>,<longitude>'
 
-    let url = `https:us1.locationiq.com/v1/search.php?key=pk.2755a236f4cbc8df7b0076e7519c870b&q=${this.state.city}&format=json`
+    let url = `https://eu1.locationiq.com/v1/search.php?key=pk.8b89beb044f7bff265b36ceb931a413c&q=${this.state.city}&format=json`;
 
 
     try {
@@ -69,17 +69,17 @@ class App extends react.Component {
           <p>Longitude: {this.state.result.lon}</p>
         }
 
-        {this.state.displayMap &&
+        {/* {this.state.displayMap &&
           <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.2755a236f4cbc8df7b0076e7519c870b&center=${this.state.result.lat},${this.state.result.lon}`} alt='' />
-        }
+        } */}
 
         {this.state.errorMessage &&
           <p>City not Found</p>
         }
 
-        {this.state.displayMap &&
+        {/* {this.state.displayMap &&
           <Weather city={this.state.city} displayMap={this.state.displayMap}></Weather>
-        }
+        } */}
       </>
     )
   }

@@ -21,7 +21,7 @@ class Weather extends react.Component {
 
         // http://localhost:3006/weather?cityName=amman
 
-        let serverRoute = 'http://localhost:3006';
+        let serverRoute = process.env.REACT_APP_SERVER;
         let url = `${serverRoute}/weather?cityName=${this.props.city}`
 
         try {

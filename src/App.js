@@ -35,6 +35,7 @@ class App extends react.Component {
       let result = await axios.get(url);
       console.log(result.data[0]);
 
+
       this.setState({
         result: result.data[0],
         displayMap: true

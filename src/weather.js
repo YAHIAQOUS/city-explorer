@@ -22,7 +22,7 @@ class Weather extends react.Component {
         // http://localhost:3006/weather?cityName=amman
 
         let serverRoute = process.env.REACT_APP_SERVER;
-        let url = `${serverRoute}weather?cityName=${this.props.city}`
+        let url = `${serverRoute}/weather?cityName=${this.props.city}`
 
         try {
             let result = await axios.get(url);

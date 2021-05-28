@@ -9,48 +9,62 @@ class Weather extends react.Component {
     constructor(props) {
         super(props);
         this.state = {
-            description: [],
-            date: [],
+            result:[],
             displayWeather: false,
             errorMessage: false
         }
     }
 
+    // lab07
+    // getWeather = async () => {
 
+    //     // http://localhost:3006/weather?cityName=amman
+
+    //     let serverRoute = process.env.REACT_APP_SERVER;
+    //     let url = `${serverRoute}/weather?cityName=${this.props.city}`
+
+    //     try {
+    //         let result = await axios.get(url);
+    //         console.log(result);
+
+    //         let descriptionArray = [];
+    //         let dateArray = [];
+
+    //         for (let i = 0; i < result.data.length; i++) {
+    //             descriptionArray.push(result.data[i].description);
+    //             dateArray.push(result.data[0].date);
+    //         }
+
+    //         this.setState({
+    //             displayWeather: true,
+    //             description: descriptionArray,
+    //             date: dateArray
+    //         })
+    //         console.log(this.state.description);
+
+    //     } catch {
+    //         this.setState({
+    //             displayWeather: false,
+    //             errorMessage: true
+    //         })
+    //     }
+    // }
+
+
+
+    // lab08
+    // http://localhost:3006/weather?city=zarqa
     getWeather = async () => {
-
-        // http://localhost:3006/weather?cityName=amman
-
+        console.log('inside function');
         let serverRoute = process.env.REACT_APP_SERVER;
-        let url = `${serverRoute}/weather?cityName=${this.props.city}`
+        const resultArray = await axios.get(`${serverRoute}/weather?city=${this.props.city}`)
 
-        try {
-            let result = await axios.get(url);
-            console.log(result);
-
-            let descriptionArray = [];
-            let dateArray = [];
-
-            for (let i = 0; i < result.data.length; i++) {
-                descriptionArray.push(result.data[i].description);
-                dateArray.push(result.data[0].date);
-            }
-
-            this.setState({
-                displayWeather: true,
-                description: descriptionArray,
-                date: dateArray
-            })
-            console.log(this.state.description);
-
-        } catch {
-            this.setState({
-                displayWeather: false,
-                errorMessage: true
-            })
-        }
+        this.setState({
+            displayWeather: true,
+            result: resultArray.data
+        })
+        console.log(this.state.result);
     }
-
 
 
     render() {
@@ -64,22 +78,30 @@ class Weather extends react.Component {
                     <Table>
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Description</th>
+                                <th>City</th>
+                                <th>{this.props.city}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{this.state.date[0]}</td>
-                                <td>{this.state.description[0]}</td>
+                                <td>Description</td>
+                                <td>{this.state.result.description}</td>
                             </tr>
                             <tr>
-                                <td>{this.state.date[1]}</td>
-                                <td>{this.state.description[1]}</td>
+                                <td>Solar Radiation</td>
+                                <td>{this.state.result.solarRad}</td>
                             </tr>
                             <tr>
-                                <td>{this.state.date[2]}</td>
-                                <td>{this.state.description[2]}</td>
+                                <td>Temperature</td>
+                                <td>{this.state.result.temp}</td>
+                            </tr>
+                            <tr>
+                                <td>Wind Direction</td>
+                                <td>{this.state.result.windDir}</td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed</td>
+                                <td>{this.state.result.windSpd}</td>
                             </tr>
                         </tbody>
                     </Table>

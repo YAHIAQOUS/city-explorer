@@ -1,6 +1,7 @@
 import react from 'react';
 import axios from 'axios';
 import Weather from './weather'
+import Movies from './movies'
 
 class App extends react.Component {
 
@@ -79,6 +80,9 @@ class App extends react.Component {
 
         {this.state.displayMap &&
           <Weather city={this.state.city} displayMap={this.state.displayMap}></Weather>
+        }
+        {this.state.displayMap &&
+          <Movies city={this.state.city} displayMap={this.state.displayMap}></Movies>
         }
       </>
     )

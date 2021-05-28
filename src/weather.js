@@ -60,7 +60,7 @@ class Weather extends react.Component {
         const resultArray = await axios.get(`${serverRoute}/weather?city=${this.props.city}`)
 
         this.setState({
-            displayWeather: true,
+            displayWeather: true ,
             result: resultArray.data
         })
         console.log(this.state.result);

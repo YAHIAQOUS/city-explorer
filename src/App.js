@@ -29,8 +29,8 @@ class App extends react.Component {
 
     // location map 'https://maps.locationiq.com/v3/staticmap?key=<YOUR_ACCESS_TOKEN>&center=<latitude>,<longitude>'
 
+    // lab06
     let url = `https://eu1.locationiq.com/v1/search.php?key=pk.8b89beb044f7bff265b36ceb931a413c&q=${this.state.city}&format=json`;
-
 
     try {
       let result = await axios.get(url);
@@ -58,7 +58,6 @@ class App extends react.Component {
           <input type='text' placeholder='add a city' onChange={this.updateValue} />
           <button type='submit'>Explore!</button>
         </form>
-
 
         {this.state.displayMap &&
           <p>City: {this.state.result.display_name}</p>

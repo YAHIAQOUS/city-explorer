@@ -9,7 +9,7 @@ class Weather extends react.Component {
     constructor(props) {
         super(props);
         this.state = {
-            result:[],
+            result: [],
             displayWeather: false,
             errorMessage: false
         }
@@ -17,31 +17,24 @@ class Weather extends react.Component {
 
     // lab07
     // getWeather = async () => {
-
     //     // http://localhost:3006/weather?cityName=amman
-
     //     let serverRoute = process.env.REACT_APP_SERVER;
     //     let url = `${serverRoute}/weather?cityName=${this.props.city}`
-
     //     try {
     //         let result = await axios.get(url);
     //         console.log(result);
-
     //         let descriptionArray = [];
     //         let dateArray = [];
-
     //         for (let i = 0; i < result.data.length; i++) {
     //             descriptionArray.push(result.data[i].description);
     //             dateArray.push(result.data[0].date);
     //         }
-
     //         this.setState({
     //             displayWeather: true,
     //             description: descriptionArray,
     //             date: dateArray
     //         })
     //         console.log(this.state.description);
-
     //     } catch {
     //         this.setState({
     //             displayWeather: false,
@@ -60,7 +53,7 @@ class Weather extends react.Component {
         const resultArray = await axios.get(`${serverRoute}/weather?city=${this.props.city}`)
 
         this.setState({
-            displayWeather: true ,
+            displayWeather: true,
             result: resultArray.data
         })
         console.log(this.state.result);
